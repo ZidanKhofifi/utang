@@ -1,0 +1,388 @@
+/* Variabel Warna */
+:root {
+    --primary-color: #007bff; /* Biru cerah */
+    --primary-dark: #0056b3;
+    --secondary-color: #6c757d; /* Abu-abu */
+    --secondary-dark: #5a6268;
+    --success-color: #28a745; /* Hijau */
+    --success-dark: #218838;
+    --danger-color: #dc3545; /* Merah */
+    --danger-dark: #c82333;
+    --warning-color: #ffc107; /* Kuning */
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #e9ecef;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Mengubah agar konten bisa scroll jika tinggi */
+    min-height: 100vh;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px; /* Jaga agar ada jarak di bawah container utama */
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: var(--primary-dark);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.4em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-top: -15px;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* Formulir dan Input */
+form {
+    margin-top: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="number"],
+.input-group input[type="date"],
+.input-group select {
+    width: calc(100% - 24px); /* Penuh lebar dikurangi padding */
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Tombol */
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block; /* Untuk tombol inline */
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.secondary-btn:hover {
+    background-color: var(--secondary-dark);
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.success-btn {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.success-btn:hover {
+    background-color: var(--success-dark);
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.danger-btn:hover {
+    background-color: var(--danger-dark);
+}
+
+.full-width-btn {
+    width: 100%;
+    display: block; /* Memastikan tombol menjadi blok */
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
+/* Pesan (Sukses/Error) */
+.message-text {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message-text.success {
+    color: var(--success-dark);
+    background-color: #e6ffe6;
+    border: 1px solid #c6f6c6;
+}
+
+.message-text.error {
+    color: var(--danger-dark);
+    background-color: #ffe6e6;
+    border: 1px solid #f6c6c6;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-header h1 {
+    margin-bottom: 10px;
+}
+
+.header-actions {
+    display: flex;
+    flex-wrap: wrap; /* Untuk responsif di HP */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%; /* Agar bisa mengambil lebar penuh */
+}
+
+#welcomeMessage {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-right: 10px;
+}
+
+/* Section Card */
+.section-card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    margin-top: 20px;
+}
+
+/* Filter Controls */
+.filter-controls {
+    display: flex;
+    justify-content: flex-end; /* Pindahkan filter ke kanan */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Agar responsif */
+}
+
+.filter-controls label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.filter-controls select {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    min-width: 120px; /* Minimal lebar dropdown */
+}
+
+/* Daftar Utang (Card-based) */
+#debtList, #userList {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#debtList li, #userList li {
+    background-color: var(--light-bg);
+    border: 1px solid var(--border-color);
+    padding: 18px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Tumpuk vertikal di mobile */
+    gap: 10px;
+    box-shadow: 0 1px 5px var(--shadow-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#debtList li:hover, #userList li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+#debtList li.paid {
+    background-color: #e6ffe6; /* Light green for paid */
+    border-color: #c6f6c6;
+    opacity: 0.8;
+}
+
+.debt-info, .user-info {
+    flex-grow: 1;
+    font-size: 0.95em;
+    color: var(--text-color);
+}
+
+.debt-info strong, .user-info strong {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.debt-info span {
+    font-weight: 700; /* Status lebih tebal */
+}
+
+.debt-info .status-paid {
+    color: var(--success-dark);
+}
+
+.debt-info .status-unpaid {
+    color: var(--danger-dark);
+}
+
+.debt-actions, .user-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end; /* Tombol ke kanan */
+    width: 100%; /* Mengambil lebar penuh di mobile */
+}
+
+.debt-actions button, .user-actions button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    min-width: 90px; /* Lebar minimum tombol */
+}
+
+/* Total Utang Summary (User Only) */
+.total-debt-summary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.total-debt-summary strong {
+    font-size: 1.5em;
+    margin-left: 8px;
+}
+
+/* Responsif untuk Layar Lebar */
+@media (min-width: 768px) {
+    .dashboard-header {
+        flex-direction: row; /* Kembali ke baris untuk desktop */
+        justify-content: space-between;
+    }
+    .dashboard-header h1 {
+        margin-bottom: 0;
+    }
+    .header-actions {
+        justify-content: flex-end;
+    }
+
+    #debtList li, #userList li {
+        flex-direction: row; /* Kembali ke baris untuk desktop */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .debt-info, .user-info {
+        flex-basis: 70%; /* Informasi mengambil lebih banyak ruang */
+    }
+
+    .debt-actions, .user-actions {
+        width: auto; /* Kembali ke lebar konten */
+        margin-top: 0;
+    }
+
+    .full-width-btn {
+        width: auto; /* Tombol tidak perlu selebar penuh di desktop */
+        display: inline-block;
+    }
+    .margin-top-10 {
+        margin-top: 0; /* Hapus margin top jika sudah inline */
+        margin-left: 10px; /* Beri jarak antar tombol */
+    }
+}
+
+/* Login khusus agar tampilan lebih senter */
+.login-container {
+    margin-top: 10vh; /* Turunkan sedikit dari atas */
+    padding: 40px;
+    max-width: 400px; /* Lebih ramping untuk login */
+}

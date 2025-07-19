@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Pencatat Utang</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <h1 id="dashboardTitle">Dashboard Utang</h1>
+            <div class="header-actions">
+                <span id="welcomeMessage"></span>
+                <button id="logoutButton" class="btn secondary-btn">Logout</button>
+            </div>
+        </header>
+
+        <div id="adminControls" class="admin-only" style="display: none;">
+            <button id="showAddDebtFormBtn" class="btn primary-btn full-width-btn">Tambah Utang Baru</button>
+            <button id="showUserManagementBtn" class="btn secondary-btn full-width-btn margin-top-10">Manajemen Pengguna</button>
+        </div>
+
+        <div id="addDebtSection" class="section-card admin-only" style="display: none;">
+            <h2>Tambah Utang</h2>
+            <form id="debtForm">
+                <div class="input-group">
+                    <label for="debtorName">Nama Peminjam</label>
+                    <input type="text" id="debtorName" placeholder="Nama pihak yang berutang" required>
+                </div>
+                <div class="input-group">
+                    <label for="debtAmount">Jumlah Utang</label>
+                    <input type="number" id="debtAmount" placeholder="Contoh: 50000" required min="0">
+                </div>
+                <div class="input-group">
+                    <label for="debtDate">Tanggal Utang</label>
+                    <input type="date" id="debtDate" required>
+                </div>
+                <div class="input-group admin-only" id="assignUserGroup">
+                    <label for="assignUserId">Untuk Pengguna</label>
+                    <select id="assignUserId"></select>
+                </div>
+                <button type="submit" class="btn primary-btn full-width-btn">Simpan Utang</button>
+                <p id="debtFormMessage" class="message-text"></p>
+            </form>
+        </div>
+
+        <div id="userManagementSection" class="section-card admin-only" style="display: none;">
+            <h2>Manajemen Pengguna</h2>
+            <button id="showAddUserFormBtn" class="btn primary-btn full-width-btn">Tambah Pengguna Baru</button>
+
+            <div id="addUserSection" style="display: none;">
+                <h3>Tambah Pengguna</h3>
+                <form id="userForm">
+                    <div class="input-group">
+                        <label for="newUsername">Username</label>
+                        <input type="text" id="newUsername" placeholder="Username unik" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="newUserPassword">Password</label>
+                        <input type="password" id="newUserPassword" placeholder="Kata sandi" required>
+                    </div>
+                    <button type="submit" class="btn primary-btn full-width-btn">Buat Pengguna</button>
+                    <p id="userFormMessage" class="message-text"></p>
+                </form>
+            </div>
+
+            <h3>Daftar Pengguna</h3>
+            <ul id="userList">
+                </ul>
+        </div>
+
+
+        <div id="debtListSection" class="section-card">
+            <h2 id="debtListTitle">Daftar Utang</h2>
+            <div id="userTotalDebt" class="total-debt-summary user-only" style="display: none;">
+                Total Utang Belum Lunas: <strong id="totalUnpaidAmount">Rp0</strong>
+            </div>
+
+            <div class="filter-controls">
+                <label for="filterStatus">Filter Status:</label>
+                <select id="filterStatus">
+                    <option value="all">Semua</option>
+                    <option value="unpaid">Belum Lunas</option>
+                    <option value="paid">Lunas</option>
+                </select>
+            </div>
+
+            <ul id="debtList">
+                </ul>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
