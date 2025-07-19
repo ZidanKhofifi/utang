@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Rule for API calls (direct PHP execution)
+    RewriteRule ^api/(.*)$ api/$1 [L]
+
+    # Rule for HTML files
+    RewriteRule ^(dashboard|index)\.html$ $1.html [L]
+
+    # Fallback for root to index.html if not an API or existing file
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.html [L]
+</IfModule>
